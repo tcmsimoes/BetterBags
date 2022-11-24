@@ -1,0 +1,6 @@
+## Interface: 100002
+## Title: BetterBags
+## Notes: Auto junk seller and highlighter
+## Author: Banksy
+
+core.lua
