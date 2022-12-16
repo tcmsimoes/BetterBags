@@ -4,12 +4,10 @@ myFrame:RegisterEvent("MERCHANT_CLOSED")
 myFrame:RegisterEvent("BAG_UPDATE_DELAYED")
 
 local function sellJunk()
-    local MAX_CONTAINER_ITEMS = MAX_CONTAINER_ITEMS or 36
-    local NUM_BAG_FRAMES = NUM_BAG_FRAMES or 4
-
-    for bag = 0, NUM_BAG_FRAMES do
-        for slot = 1, MAX_CONTAINER_ITEMS do
-            local bagItem = ItemLocation:CreateFromBagAndSlot(bag, slot)
+    local totalBags = NUM_BAG_SLOTS or 4
+    for bagId = 0, totalBags do
+        for slotId = 1, C_Container.GetContainerNumSlots(bagId) do
+            local bagItem = ItemLocation:CreateFromBagAndSlot(bagId, slotId)
             if C_Item.DoesItemExist(bagItem) then
                 if (C_Item.GetItemQuality(bagItem) == Enum.ItemQuality.Poor) then
                     C_Container.UseContainerItem(bagItem:GetBagAndSlot())
