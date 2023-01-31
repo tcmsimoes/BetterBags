@@ -1,4 +1,4 @@
-## Interface: 100002
+## Interface: 100005
 ## Title: BetterBags
 ## Notes: Auto junk seller and highlighter
 ## Author: Banksy
