@@ -1,6 +1,6 @@
-## Interface: 100105
+## Interface: 100107
 ## Title: BetterBags
-## Notes: Auto junk seller and highlighter
+## Notes: Auto repair and junk highlighter
 ## Author: Banksy
 
 core.lua

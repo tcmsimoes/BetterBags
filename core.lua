@@ -1,21 +1,6 @@
 local myFrame = CreateFrame("frame")
 myFrame:RegisterEvent("MERCHANT_SHOW")
 myFrame:RegisterEvent("MERCHANT_CLOSED")
-myFrame:RegisterEvent("BAG_UPDATE_DELAYED")
-
-local function sellJunk()
-    local totalBags = NUM_BAG_SLOTS or 4
-    for bagId = 0, totalBags do
-        for slotId = 1, C_Container.GetContainerNumSlots(bagId) do
-            local bagItem = ItemLocation:CreateFromBagAndSlot(bagId, slotId)
-            if C_Item.DoesItemExist(bagItem) then
-                if (C_Item.GetItemQuality(bagItem) == Enum.ItemQuality.Poor) then
-                    C_Container.UseContainerItem(bagItem:GetBagAndSlot())
-                end
-            end
-        end
-    end
-end
 
 local function repair()
     if CanMerchantRepair() then
@@ -39,14 +24,9 @@ local myIsMerchantPresent = false
 myFrame:SetScript("OnEvent", function(self, event)
     if event == "MERCHANT_SHOW" then
         myIsMerchantPresent = true
-        sellJunk()
         repair()
     elseif event == "MERCHANT_CLOSED" then
         myIsMerchantPresent = false
-    elseif event == "BAG_UPDATE_DELAYED" then
-        if myIsMerchantPresent then
-            sellJunk()
-        end
     end
 end)
 
