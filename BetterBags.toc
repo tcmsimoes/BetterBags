@@ -1,5 +1,6 @@
 ## Interface: 100200
 ## Title: BetterBags
+## IconTexture: 618858
 ## Notes: Auto repair and junk highlighter
 ## Author: Banksy
 
