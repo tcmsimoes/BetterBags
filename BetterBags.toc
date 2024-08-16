@@ -1,4 +1,4 @@
-## Interface: 100207
+## Interface: 110002
 ## Title: BetterBags
 ## IconTexture: 618858
 ## Notes: Auto repair and junk highlighter
