@@ -56,7 +56,7 @@ end
 
 
 local myOldItems = {}
-hooksecurefunc(ContainerFrameCombinedBags, "UpdateItems", function(self)
+local function MyUpdateItems(self)
     local newItems = {}
     for _, itemButton in self:EnumerateValidItems() do
         local bagId = itemButton:GetBagID()
@@ -89,4 +89,16 @@ hooksecurefunc(ContainerFrameCombinedBags, "UpdateItems", function(self)
     end
 
     myOldItems = newItems
+end
+
+local frame = CreateFrame("Frame")
+frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+frame:SetScript("OnEvent", function()
+    frame:UnregisterAllEvents()
+
+    for i = 1, 5 do
+        local frame = ContainerFrameContainer.ContainerFrames[i]
+        hooksecurefunc(frame, "UpdateItems", MyUpdateItems)
+    end
+    hooksecurefunc(ContainerFrameCombinedBags, "UpdateItems", MyUpdateItems)
 end)
