@@ -5,4 +5,5 @@
 ## Notes: Auto repair and junk highlighter
 ## Author: Banksy
 
-core.lua
+AutoRepair.lua
+TrashHighlighter.lua
